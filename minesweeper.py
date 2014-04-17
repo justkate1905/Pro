@@ -156,7 +156,18 @@ def player(e):
                         g -=1
                         
         
-        
+def check_hole():
+    for item in status_map:
+        #бомбы рядом нет
+        if item[1] == 0:
+            canv.itemconfig(item[0],fill="white")
+        elif item[1]!=0 & item[1]!=9:
+            canv.itemconfig(item[0],fill="white")
+            i = int(item[0].split("_")[0])
+            j = int(item[0].split("_")[1])
+            xn = i*20+(i+1)*2
+            yn = j*20+(j+1)*2
+            canv.create_text(xn+10,yn+10,text=str(item[1]))            
    
 
 def flag(e):
